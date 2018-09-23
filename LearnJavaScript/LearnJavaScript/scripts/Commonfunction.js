@@ -1,11 +1,4 @@
-﻿function additionOfNumber() {
-    let num1 = 10;
-    let num2 = 20;
-    var result = "Result is : " + (num1 + num2);
-    document.write(result);
-};
-
-function AddNumbers() {
+﻿function AddNumbers() {
     let num1 = document.getElementById('firstNum').value;
     let num2 = document.getElementById('secondNum').value;
 
@@ -63,27 +56,58 @@ function WorkingWithArray() {
     //});
     //document.write(result);
 
-    //let myArray = new Array(3);
-    //for (var i = 0; i < 3; i++) {
-    //    myArray[i] = new Array(5);
-    //}
+    let myArray = new Array(3);
+    for (var i = 0; i < 3; i++) {
+        myArray[i] = new Array(5);
+    }
 
-    //let start = 1;
-    //for (var i = 0; i < 3; i++)
-    //{
-    //    for (var j = 0; j < 5; j++)
-    //    {
-    //        myArray[i][j] = start;
-    //        start += 1;
-    //    }
-    //}
+    let start = 1;
+    for (var i = 0; i < 3; i++)
+    {
+        for (var j = 0; j < 5; j++)
+        {
+            myArray[i][j] = start;
+            start += 1;
+        }
+    }
 
-    //for (var i = 0; i < 3; i++) {
-    //    for (var j = 0; j < 5; j++) {
-    //        document.write(myArray[i][j] + "&emsp;");
-    //    }
-    //    document.write("</br>");
-    //}
+    for (var i = 0; i < 3; i++) {
+        for (var j = 0; j < 5; j++) {
+            document.write(myArray[i][j] + "&emsp;");
+        }
+        document.write("</br>");
+    }
 };
+
+//Function Closure Start
+function additionOfNumber(num1, num2)
+{
+    let result = "Result is : ";
+
+    function add()
+    {
+        return result + (num1 + num2);
+    };
+    return add;
+};
+
+function callAddClosue()
+{
+    let result = additionOfNumber(10, 9);
+    document.write(result);
+};
+//Function Closure Ends 
+
+let clickCount = (function ()
+{
+    let count = 0;
+    return function ()
+    {
+        return ++count;
+    }
+})();
+
+
+
 
 
